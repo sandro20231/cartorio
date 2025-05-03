@@ -12,7 +12,8 @@ urlpatterns = [
          views.mostrarmatricula, name="mostrarmatricula2"),
     path('buscarmatricula/', views.buscarmatricula, name='buscarmatricula'),
     path('buscadocumento', views.buscadocumento, name="buscadocumento"),
-    path('<int:matricula>', views.mostrarmatricula, name='mostrarmatricula3')
+    path('<int:matricula>', views.mostrarmatricula, name='mostrarmatricula3'),
+    path('transmitirbens', views.transmitir, name='transmitir')
 
 
 ]

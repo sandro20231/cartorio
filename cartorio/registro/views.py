@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponseRedirect
 from django.urls import reverse
-from .models import Registro
+from .models import Registro, Transmissaodebens
 
 # Create your views here.
 
@@ -55,16 +55,41 @@ def listarregistros(request):
 
 def mostrarmatricula(request, matricula):
     dados = Registro.objects.get(pk=matricula)
-    return render(request, "registro/matricula.html", {"dado": dados})
+    transmissoes = Transmissaodebens.objects.filter(matricula=matricula)
+    return render(request, "registro/matricula.html", {"dado": dados, "ts": transmissoes})
 
 
 def buscarmatricula(request):
     matricula = request.POST.get('buscamatricula')
     dados = Registro.objects.get(pk=matricula)
-    return render(request, "registro/matricula.html", {"dado": dados})
+    transmissoes = Transmissaodebens.objects.filter(matricula=matricula)
+    return render(request, "registro/matricula.html", {"dado": dados, "ts": transmissoes})
 
 
 def buscadocumento(request):
     documento = request.POST.get('buscadocumento')
     dados = Registro.objects.filter(cpf_proprietario=documento)
     return render(request, "registro/listapordocumento.html", {"registros": dados})
+
+
+def transmitir(request):
+    if request.method == "POST":
+        datatransmissao = request.POST['datatransmissao']
+        matricula = request.POST['matriculatransmitida']
+        comprador = request.POST['compradordebens']
+        documento = request.POST['cpfcompradordebens']
+        vendedor = request.POST['vendedordebens']
+        documentoVendedor = request.POST['cpfvendedordebens']
+        valor = request.POST['valordetransmissao']
+
+        imovel = Registro.objects.get(pk=matricula)
+        imovel.proprietario = comprador
+        imovel.cpf_proprietario = documento
+        imovel.save()
+
+        registro = Transmissaodebens(
+            dataTransmissao=datatransmissao, matricula=imovel, nomeComprador=comprador, cpfComprador=documento, valor=valor, nomeVendedor=vendedor, cpfVendedor=documentoVendedor)
+        registro.save()
+        return HttpResponseRedirect(reverse('listarregistros'))
+
+    return render(request, "registro/transmissao.html")

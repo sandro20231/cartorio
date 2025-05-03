@@ -1,0 +1,43 @@
+{% extends "registro/layout.html" %}
+
+{% block body %}
+<h2 class="titulonavegacao">Transmissão de bens:</h2>
+<div class="transmissaopai">
+    <form class="transmissaofilho" action="{% url 'transmitir' %}" method="post">
+        {% csrf_token %}
+        <table>
+            <tr>
+                <td> <label>Data:</label></td>
+                <td><input type="date" name="datatransmissao"><br></td>
+            </tr>
+            <tr>
+                <td><label>Matrícula:</label></td>
+                <td><input type="number" name="matriculatransmitida"></td>
+            </tr>
+            <tr>
+                <td><label>Vendedor:</label></td>
+                <td><input type="text" name="vendedordebens"></td>
+            </tr>
+            <tr>
+                <td><label>CPF do vendedor:</label></td>
+                <td><input type="text" name="cpfvendedordebens"></td>
+            </tr>
+            <tr>
+                <td><label>Comprador:</label></td>
+                <td><input type="text" name="compradordebens"></td>
+            </tr>
+            <tr>
+                <td><label>CPF do comprador:</label></td>
+                <td><input type="text" name="cpfcompradordebens"></td>
+            </tr>
+            <tr>
+                <td><label>Valor:</label></td>
+                <td><input type="number" name="valordetransmissao"></td>
+            </tr>
+        </table>
+        <button type="submit" class="botaotransmissao">Enviar</button>
+
+    </form>
+</div>
+
+{% endblock %}

@@ -15,6 +15,21 @@
     <p><b class="itemmatricula">Registro anterior:</b> {{dado.registro_anterior}}</p>
     <hr>
 </div>
+<div>
+    <h2><b class="itemmatricula">Transmissoes da matricula:</b></h2>
+
+    <div class="mostrartransmissoes">
+        {% for t in ts %}
+        <p><b class="itemmatricula">averbação:</b>{{t.id}}</p>
+        <p>Na data de {{t.dataTransmissao }}, {{t.nomeVendedor}} que porta o documento {{t.cpfVendedor}} vendeu este
+            imóvel
+            referente nessa matrícula para {{t.nomeComprador}} que porta o documento {{t.cpfComprador }} pelo valor de
+            R$
+            {{t.valor }}</p>
+        {% endfor %}
+    </div>
+
+</div>
 
 
 

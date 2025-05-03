@@ -139,3 +139,24 @@ header {
 .itemmatricula {
     color: blue;
 }
+
+.transmissaopai {
+    display: flex;
+    justify-content: center;
+}
+
+.transmissaofilho {
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.botaotransmissao {
+    width: 200px;
+    text-align: center;
+    margin-left: 50px;
+}
+
+.mostrartransmissoes {
+   
+}
