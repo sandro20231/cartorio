@@ -75,3 +75,25 @@ header {
     font-weight: bold;
 
 }
+
+.titulonavegacao {
+
+    color: blue;
+    text-align: center;
+    margin: 5px;
+}
+
+.buscamatriculapai {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.botaobuscamatricula {
+    width: 170px;
+    height: 20px;
+
+}
+
+.linksnavegacao {
+    text-align: center;
+}
