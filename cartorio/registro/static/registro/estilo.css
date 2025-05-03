@@ -59,12 +59,19 @@ header {
 
 .botaologin {
     text-align: center;
-    width: 200px;
+    width: 220px;
     height: 30px;
-    margin-left: 10px;
+
     margin-top: 20px;
 }
 
 .inputlogin {
     margin-left: 1px;
+}
+
+.boasvindas {
+    text-align: center;
+    color: blue;
+    font-weight: bold;
+
 }

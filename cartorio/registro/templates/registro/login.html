@@ -1,8 +1,14 @@
 {% extends 'registro/layout.html' %}
 
 {% block body %}
+<div class="boasvindas">
+    {{ mensagemerro }}
+</div>
+
 <div class="pailogin">
-    <form class="filhologin">
+
+    <form class="filhologin" action="{% url 'login' %}" method="post">
+        {% csrf_token %}
         <label>Login:</label>
         <input type="text" name="login" class="inputlogin"><br>
         <label>Senha:</label>
