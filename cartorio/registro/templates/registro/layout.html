@@ -25,7 +25,7 @@
             <h2 class="titulonavegacao">
                 Busca por documento:
             </h2>
-            <form class="buscamatriculapai">
+            <form class="buscamatriculapai" action="{% url 'buscadocumento' %}" method="post">
                 {% csrf_token %}
                 <input type="text" name="buscadocumento"><br>
                 <button type="submit" class="botaobuscamatricula">Buscar</button><br>

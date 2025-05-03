@@ -10,6 +10,9 @@ urlpatterns = [
     path('id/<int:matricula>', views.mostrarmatricula, name="mostrarmatricula"),
     path('listarregistros/<int:matricula>',
          views.mostrarmatricula, name="mostrarmatricula2"),
-    path('buscarmatricula/', views.buscarmatricula, name='buscarmatricula')
+    path('buscarmatricula/', views.buscarmatricula, name='buscarmatricula'),
+    path('buscadocumento', views.buscadocumento, name="buscadocumento"),
+    path('<int:matricula>', views.mostrarmatricula, name='mostrarmatricula3')
+
 
 ]

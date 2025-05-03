@@ -62,3 +62,9 @@ def buscarmatricula(request):
     matricula = request.POST.get('buscamatricula')
     dados = Registro.objects.get(pk=matricula)
     return render(request, "registro/matricula.html", {"dado": dados})
+
+
+def buscadocumento(request):
+    documento = request.POST.get('buscadocumento')
+    dados = Registro.objects.filter(cpf_proprietario=documento)
+    return render(request, "registro/listapordocumento.html", {"registros": dados})
