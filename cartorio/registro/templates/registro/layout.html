@@ -16,7 +16,8 @@
     <div class="pai">
         <div class="navegacao">
             <h2 class="titulonavegacao">Matrícula:</h2>
-            <form class="buscamatriculapai">
+            <form class="buscamatriculapai" action="{% url 'buscarmatricula' %}" method="post">
+                {% csrf_token %}
                 <input type="text" name="buscamatricula"><br>
                 <button type="submit" class="botaobuscamatricula">Buscar</button><br>
             </form>
@@ -25,6 +26,7 @@
                 Busca por documento:
             </h2>
             <form class="buscamatriculapai">
+                {% csrf_token %}
                 <input type="text" name="buscadocumento"><br>
                 <button type="submit" class="botaobuscamatricula">Buscar</button><br>
 

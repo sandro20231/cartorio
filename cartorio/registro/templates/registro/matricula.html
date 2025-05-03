@@ -1,0 +1,21 @@
+{% extends "registro/layout.html" %}
+
+{% block body %}
+<div class="paimatricula">
+    <h2 class="titulonavegacao"><b class="itemmatricula">Matricula:</b> {{ dado.id }}</h2>
+    <p><b class="itemmatricula">Localização :</b></p>
+    <p>{{ dado.localizacao }}</p>
+    <hr>
+    <p><b class="itemmatricula">Número de contribuinte:</b> {{ dado.contribuinte }}</p>
+
+    <p><b class="itemmatricula">Proprietario:</b> {{dado.proprietario}}</p>
+
+    <p><b class="itemmatricula">CPF:</b> {{dado.cpf_proprietario}}</p>
+
+    <p><b class="itemmatricula">Registro anterior:</b> {{dado.registro_anterior}}</p>
+    <hr>
+</div>
+
+
+
+{% endblock %}

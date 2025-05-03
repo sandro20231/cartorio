@@ -50,5 +50,15 @@ def novoregistro(request):
 
 
 def listarregistros(request):
-
     return render(request, 'registro/listarregistros.html', {"registros": Registro.objects.all()})
+
+
+def mostrarmatricula(request, matricula):
+    dados = Registro.objects.get(pk=matricula)
+    return render(request, "registro/matricula.html", {"dado": dados})
+
+
+def buscarmatricula(request):
+    matricula = request.POST.get('buscamatricula')
+    dados = Registro.objects.get(pk=matricula)
+    return render(request, "registro/matricula.html", {"dado": dados})
