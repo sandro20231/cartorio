@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponseRedirect
 from django.urls import reverse
+from .models import Registro
 
 # Create your views here.
 
@@ -29,3 +30,25 @@ def logina(request):
 def logouta(request):
     logout(request)
     return HttpResponseRedirect(reverse('login'))
+
+
+def novoregistro(request):
+    if request.method == "POST":
+        dataCriacao = request.POST['dataregistro']
+        descricao = request.POST['descricaonovoregistro']
+        contribuinte = request.POST['contribuinte']
+        proprietario = request.POST['proprietario']
+        cpf = request.POST['cpfproprietario']
+        registroanterior = request.POST['registroanterior']
+
+        insert = Registro(datacriacao=dataCriacao, localizacao=descricao, contribuinte=contribuinte,
+                          proprietario=proprietario, registro_anterior=registroanterior, cpf_proprietario=cpf, ativo=True)
+        insert.save()
+        return HttpResponseRedirect(reverse('listarregistros'))
+
+    return render(request, "registro/novoregistro.html")
+
+
+def listarregistros(request):
+
+    return render(request, 'registro/listarregistros.html', {"registros": Registro.objects.all()})

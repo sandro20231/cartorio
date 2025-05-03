@@ -97,3 +97,41 @@ header {
 .linksnavegacao {
     text-align: center;
 }
+
+.painovoregistro {
+    display: flex;
+    justify-content: center;
+
+}
+
+.formularionovoregistro {
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+
+}
+
+.botaonovoregistro {
+    width: 170px;
+}
+
+.celulas {
+    border: 1px solid black;
+}
+
+.celulas2 {
+    border: 1px solid black;
+    color: blue;
+    text-align: center;
+}
+
+.tabelalistartodos {
+    border-collapse: collapse;
+    margin: 10px;
+}
+
+.listartodos {
+    display: flex;
+    justify-content: center;
+}

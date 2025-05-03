@@ -1,20 +1,31 @@
-{% extends 'registro/layout.html' %}
+{%load static %}
+<!DOCTYPE html>
+<html lang="en">
 
-{% block body %}
-<div class="boasvindas">
-    {{ mensagemerro }}
-</div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{% static 'registro/estilo.css' %}" rel="stylesheet">
+    <title>Cartório</title>
+</head>
 
-<div class="pailogin">
+<body>
+    <div class="boasvindas">
+        {{ mensagemerro }}
+    </div>
 
-    <form class="filhologin" action="{% url 'login' %}" method="post">
-        {% csrf_token %}
-        <label>Login:</label>
-        <input type="text" name="login" class="inputlogin"><br>
-        <label>Senha:</label>
-        <input type="password" name="senha"><br>
-        <button type="submit" class="botaologin">Enviar</button>
+    <div class="pailogin">
 
-    </form>
-</div>
-{% endblock %}
+        <form class="filhologin" action="{% url 'login' %}" method="post">
+            {% csrf_token %}
+            <label>Login:</label>
+            <input type="text" name="login" class="inputlogin"><br>
+            <label>Senha:</label>
+            <input type="password" name="senha"><br>
+            <button type="submit" class="botaologin">Enviar</button>
+
+        </form>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+{% extends "registro/layout.html" %}
+
+{% block body %}
+<h2 class="titulonavegacao">Todos registros:</h2>
+<div class="listartodos">
+    <table class="tabelalistartodos">
+        <thead>
+            <tr>
+                <th class="celulas">Matricula:</th>
+                <th class="celulas">Contribuinte:</th>
+                <th class="celulas">Proprietário:</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for r in registros %}
+            <tr>
+                <td class="celulas2">{{r.id}}</td>
+                <td class="celulas2">{{r.contribuinte}}</td>
+                <td class="celulas2">{{r.proprietario}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

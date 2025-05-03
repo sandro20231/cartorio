@@ -33,9 +33,9 @@
             <div class="linksnavegacao">
                 <h2 class="titulonavegacao">Opções:</h2>
                 <br>
-                <a href="#">Nova matrícula</a><br>
+                <a href="{% url 'novoregistro' %}">Nova matrícula</a><br>
                 <a href="#">Desdobro</a><br>
-                <a href="#">Todos registros</a><br>
+                <a href="{% url 'listarregistros' %}">Todos registros</a><br>
                 <a href="#">transmissão de bens</a>
             </div>
             <br>
@@ -50,6 +50,9 @@
 
             </div>
             <div class="corpo">
+                <div class="boasvindas">
+                    Bem vindo {{ user.username }}
+                </div>
                 {% block body %}{% endblock %}
             </div>
         </div>

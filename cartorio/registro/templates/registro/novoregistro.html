@@ -1,0 +1,27 @@
+{% extends "registro/layout.html" %}
+
+{% block body %}
+<h2 class="titulonavegacao">Novo registro</h2>
+<hr>
+<div class=" painovoregistro">
+    <form class="formularionovoregistro" action="{% url 'novoregistro' %}" method="post">
+        {% csrf_token %}
+        <label>Data de criação:</label><br>
+        <input type="date" name="dataregistro"><br>
+        <label>Descrição da localização:</label><br>
+        <textarea class="descricaonovoregistro" name="descricaonovoregistro"></textarea><br>
+        <label>Contribuinte:</label><br>
+        <input type="number" name="contribuinte"><br>
+        <label>Proprietário</label><br>
+        <input type="text" name="proprietario"><br>
+        <label>CPF:</label><br>
+        <input type="text" name="cpfproprietario"><br>
+        <label>Registro anterior:</label><br>
+        <input type="text" name="registroanterior"><br>
+        <button type="submit" class="botaonovoregistro">Registrar</button>
+
+    </form>
+</div>
+<hr>
+
+{% endblock %}
