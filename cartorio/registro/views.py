@@ -3,6 +3,8 @@ from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from .models import Registro, Transmissaodebens
+from rest_framework import viewsets
+from .serializers import RegistroSerializer, TransmissaoDeBensSerializer
 
 # Create your views here.
 
@@ -110,3 +112,13 @@ def desdobro(request):
 
         return HttpResponseRedirect(reverse('listarregistros'))
     return render(request, 'registro/desdobro.html')
+
+
+class RegistroViewSet(viewsets.ModelViewSet):
+    queryset = Registro.objects.all()
+    serializer_class = RegistroSerializer
+
+
+class TransmissaoDeBensViewSet(viewsets.ModelViewSet):
+    queryset = Transmissaodebens.objects.all()
+    serializer_class = TransmissaoDeBensSerializer
