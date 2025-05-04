@@ -1,0 +1,15 @@
+{% extends "registro/layout.html" %}
+
+{% block body %}
+<h2 class="titulonavegacao">Desdobro</h2>
+<p class="textodesdobro">Insira o id para efetuar o desdobramento do lote:</p>
+<div class="desdobropai">
+    <form class="desdobrofilho" action="{% url 'desdobro' %}" method="post">
+        {% csrf_token %}
+        <input type="number" name="iddesdobro"><br>
+
+        <button type="submit" class="botaodesdobro">Desdobrar</button>
+    </form>
+</div>
+
+{% endblock %}

@@ -28,6 +28,16 @@
             {{t.valor }}</p>
         {% endfor %}
     </div>
+    {% if dado.ativo == False %}
+    <ul>
+        Esta matrícula não está mais ativa segue abaixo a lista de matriculas filhas que continuam o histórico dessa
+        matrícula
+        {% for d in desdobros %}
+        <li><a href="{{d.id}}">{{d.id}}</a></li>
+        {% endfor %}
+    </ul>
+
+    {% endif %}
 
 </div>
 

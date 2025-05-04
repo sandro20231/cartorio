@@ -13,7 +13,8 @@ urlpatterns = [
     path('buscarmatricula/', views.buscarmatricula, name='buscarmatricula'),
     path('buscadocumento', views.buscadocumento, name="buscadocumento"),
     path('<int:matricula>', views.mostrarmatricula, name='mostrarmatricula3'),
-    path('transmitirbens', views.transmitir, name='transmitir')
+    path('transmitirbens', views.transmitir, name='transmitir'),
+    path('desdobro', views.desdobro, name="desdobro")
 
 
 ]

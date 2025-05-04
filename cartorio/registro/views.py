@@ -55,8 +55,13 @@ def listarregistros(request):
 
 def mostrarmatricula(request, matricula):
     dados = Registro.objects.get(pk=matricula)
+    if dados.ativo == False:
+        rdesdobrados = Registro.objects.filter(registro_anterior=matricula)
+    else:
+        rdesdobrados = "Sem desdobros para esta matrícula"
     transmissoes = Transmissaodebens.objects.filter(matricula=matricula)
-    return render(request, "registro/matricula.html", {"dado": dados, "ts": transmissoes})
+
+    return render(request, "registro/matricula.html", {"dado": dados, "ts": transmissoes, "desdobros": rdesdobrados})
 
 
 def buscarmatricula(request):
@@ -69,7 +74,8 @@ def buscarmatricula(request):
 def buscadocumento(request):
     documento = request.POST.get('buscadocumento')
     dados = Registro.objects.filter(cpf_proprietario=documento)
-    return render(request, "registro/listapordocumento.html", {"registros": dados})
+
+    return render(request, "registro/listapordocumento.html", {"registros": dados, })
 
 
 def transmitir(request):
@@ -93,3 +99,14 @@ def transmitir(request):
         return HttpResponseRedirect(reverse('listarregistros'))
 
     return render(request, "registro/transmissao.html")
+
+
+def desdobro(request):
+    if request.method == "POST":
+        matricula = request.POST['iddesdobro']
+        registrop = Registro.objects.get(pk=matricula)
+        registrop.ativo = False
+        registrop.save()
+
+        return HttpResponseRedirect(reverse('listarregistros'))
+    return render(request, 'registro/desdobro.html')
